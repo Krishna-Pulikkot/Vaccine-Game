@@ -1,9 +1,11 @@
+import { useState } from 'react';
+
 import './App.css';
 
 function App() {
-
+  var steps = 0;
   //Function to check if game completed
-  function checking() {
+  function checking(steps) {
     var arr = ["11", "12", "13", "21", "22", "23", "31", "32", "33"];
     var count = 0;
     for (let i = 0; i < 9; i++) {
@@ -11,72 +13,43 @@ function App() {
         count += 1;
       }
     }
-    if(count===0){
-    alert("Congratulations! Chances took = " + count);
+    if (count === 0) {
+      alert("Congratulations! Chances took = " + steps);
     }
   }
 
   //temporary function to switch class
-  function toggleClass(val){
+  function toggleClass(r, c) {
+    var val = r.toString() + c.toString();
     if (document.getElementById(val).classList.contains("active")) {
       document.getElementById(val).classList.remove("active");
-    }else{
+    } else {
       document.getElementById(val).classList.add("active");
     }
   }
 
-  
+
   //Function to spread virus on click
   function spread(r, c) {
 
-    var val = r.toString() + c.toString();
-    toggleClass(val);
+    steps += 1;
+    toggleClass(r, c);
+
     if (r + 1 <= 3) {
-      var x = r+1;
-      var y = c;
-      val = x.toString() + y.toString();
-      if (document.getElementById(val).classList.contains("active")) {
-        document.getElementById(val).classList.remove("active");
-      }else{
-        document.getElementById(val).classList.add("active");
-      }
+      toggleClass(r + 1, c);
     }
     if (c + 1 <= 3) {
-      x = r;
-      y = c+1;
-      val = x.toString() + y.toString();
-      if (document.getElementById(val).classList.contains("active")) {
-        document.getElementById(val).classList.remove("active");
-      }else{
-        document.getElementById(val).classList.add("active");
-      }
+      toggleClass(r, c + 1);
     }
-    if (c - 1 >0) {
-      x = r;
-      y = c-1;
-      val = x.toString() + y.toString();
-      if (document.getElementById(val).classList.contains("active")) {
-        document.getElementById(val).classList.remove("active");
-      }else{
-        document.getElementById(val).classList.add("active");
-      }
+    if (c - 1 > 0) {
+      toggleClass(r, c - 1);
     }
-    if (r - 1 >0) {
-      x = r-1;
-      y = c;
-      val = x.toString() + y.toString();
-      if (document.getElementById(val).classList.contains("active")) {
-        document.getElementById(val).classList.remove("active");
-      }else{
-        document.getElementById(val).classList.add("active");
-      }
+    if (r - 1 > 0) {
+      toggleClass(r - 1, c);
     }
-    
-
 
     //Checking if game completed
-    setTimeout(() => checking(), 200);
-
+    setTimeout(() => checking(steps), 200);
 
   }
 
