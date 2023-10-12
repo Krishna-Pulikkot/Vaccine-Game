@@ -1,7 +1,23 @@
+import { useEffect } from 'react';
 import './App.css';
 
 function App() {
   var steps = 0;
+
+  useEffect(() => {
+    loadGame();
+  }, []); 
+
+  function loadGame() {
+    var gameSet = [["11","12","13"], ["12","32","21"],["31","11"],["12","32"],["21","12"],["21","23","31","33"],["22","11","12"],["12","13","23","33"]];
+    var n = gameSet.length;
+    var randomNum= Math.floor(Math.random()*n);
+    for(let i=0; i<gameSet[randomNum].length ;i++ ){
+      document.getElementById(gameSet[randomNum][i]).classList.add("active");
+    }
+  }
+
+
   //Function to check if game completed
   function checking(steps) {
     var arr = ["11", "12", "13", "21", "22", "23", "31", "32", "33"];
@@ -62,20 +78,20 @@ function App() {
         <div class="board">
 
           <div class="row row1">
-            <div id="11" class="column column1 active" onClick={() => spread(1, 1)}></div>
-            <div id="12" class="column column2 active" onClick={() => spread(1, 2)}></div>
+            <div id="11" class="column column1" onClick={() => spread(1, 1)}></div>
+            <div id="12" class="column column2" onClick={() => spread(1, 2)}></div>
             <div id="13" class="column column3" onClick={() => spread(1, 3)}></div>
           </div>
 
           <div class="row row2">
-            <div id="21" class="column column1 active" onClick={() => spread(2, 1)}></div>
+            <div id="21" class="column column1" onClick={() => spread(2, 1)}></div>
             <div id="22" class="column column2" onClick={() => spread(2, 2)}></div>
             <div id="23" class="column column3" onClick={() => spread(2, 3)}></div>
           </div>
 
           <div class="row row3">
             <div id="31" class="column column1" onClick={() => spread(3, 1)}></div>
-            <div id="32" class="column column2 active" onClick={() => spread(3, 2)}></div>
+            <div id="32" class="column column2" onClick={() => spread(3, 2)}></div>
             <div id="33" class="column column3" onClick={() => spread(3, 3)}></div>
           </div>
 
