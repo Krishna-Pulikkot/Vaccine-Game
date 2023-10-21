@@ -1,18 +1,19 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 
 function App() {
-  var steps = 0;
+  var [steps, setSteps] = useState(0);
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     loadGame();
-  }, []); 
+  }, []);
 
   function loadGame() {
-    var gameSet = [["11","12","13"], ["12","32","21"],["31","11"],["12","32"],["21","12"],["21","23","31","33"],["22","11","12"],["12","13","23","33"]];
+    var gameSet = [["11","12","21"],["11", "12", "13"], ["12", "32", "21"], ["31", "11"], ["12", "32"], ["21", "12"], ["21", "23", "31", "33"], ["22", "11", "12"], ["12", "13", "23", "33"]];
     var n = gameSet.length;
-    var randomNum= Math.floor(Math.random()*n);
-    for(let i=0; i<gameSet[randomNum].length ;i++ ){
+    var randomNum = Math.floor(Math.random() * n);
+    for (let i = 0; i < gameSet[randomNum].length; i++) {
       document.getElementById(gameSet[randomNum][i]).classList.add("active");
     }
   }
@@ -20,6 +21,7 @@ function App() {
 
   //Function to check if game completed
   function checking(steps) {
+
     var arr = ["11", "12", "13", "21", "22", "23", "31", "32", "33"];
     var count = 0;
     for (let i = 0; i < 9; i++) {
@@ -28,7 +30,8 @@ function App() {
       }
     }
     if (count === 0) {
-      alert("Congratulations! Chances took = " + steps);
+      document.getElementById('back').classList.add("blur-show");
+      document.getElementById('win').classList.add("show-win");
     }
   }
 
@@ -45,8 +48,8 @@ function App() {
 
   //Function to spread virus on click
   function spread(r, c) {
+    setSteps(steps + 1);
 
-    steps += 1;
     toggleClass(r, c);
 
     if (r + 1 <= 3) {
@@ -71,9 +74,33 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
+      
+      
+      <div className='navbar'>
+        <div className = 'navbar-header'>
+          <img className='logo' src='logo.png' alt="Logo" />
+          <p className='score-nav'> <span className='steps-show'> Score :  {steps} </span> </p>
+          <button className='open'  onClick={() => {setOpen(true);document.getElementById('back').classList.add("blur-show");}}>HOW TO PLAY</button>
+        </div>
+        {open && (
+          <div className="popup">
+            {<div id='instructions' className='instructions'>
+              <h1>How To Play?</h1>
+              <ul>
+                <li>The game board consists of 9 squares, some affected by virus and some not. The goal is to make the entire board not affected by virus.</li>
+                <li>Clicking on a square inverts its current state. i.e., square affected by virus will be vaccinated and vice versa.</li>
+                <li>Clicking on a square inverts the current state of its own as well as that of the squares just above, just below, just left and just right to it.</li>
+                <li>Try finishing the game within 10 steps to be a Pro player! Good luck!!</li>
+              </ul>
+              <button className='close' onClick={() => {setOpen(false);document.getElementById('back').classList.remove("blur-show");}}>Back to Game</button>
+            </div>}
 
-        Vaccine
+          </div>
+        )}
+      </div>
+
+      <div id='back' className='blur-back'></div>
+      <header className="App-header">
 
         <div class="board">
 
@@ -98,6 +125,14 @@ function App() {
         </div>
 
       </header>
+
+      <div id='win' className='win'>
+        Hurray!!! You took<span className='step-count'>{steps} </span>steps.
+        <button type='submit' className='again' onClick={() => window.location.reload()}>Play Again</button>
+      </div>
+
+
+
     </div>
   );
 }
