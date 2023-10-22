@@ -1,70 +1,67 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<div align="center" display="flex">
+  
+# [Vaccine-Game](https://vaccine-game.netlify.app/)       
+![logo](https://github.com/Krishna-Pulikkot/Vaccine-Game/assets/70850484/61408f15-4df9-4e74-8a12-8dcb6e2a0b89)
 
-## Available Scripts
+</div>
 
-In the project directory, you can run:
+<div align="center">
+  
+  [![Website perso.crans.org](https://img.shields.io/website-up-down-green-red/https/perso.crans.org.svg)](https://perso.crans.org/)
+  [![Open Source Love png1](https://badges.frapsoft.com/os/v1/open-source.png?v=103)](https://github.com/ellerbrock/open-source-badges/)
+  
+</div>
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+The city is affected by the virus, so help the city to fight against it. 
 
-### `npm test`
+## Website  <img src="https://api.netlify.com/api/v1/badges/985fc59f-696c-49b8-b433-461eb716f315/deploy-status">
+**Click me:** 
+[Vaccine-Game](https://vaccine-game.netlify.app/)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Rules of Game
+<ul>
+  <li>The game board consists of 9 squares, some affected by virus and some not. The goal is to make the entire board not affected by virus.</li>
+  <li>Clicking on a square inverts its current state. i.e., square affected by virus will be vaccinated and vice versa.</li>
+  <li>Clicking on a square inverts the current state of its own as well as that of the squares just above, just below, just left and just right to it.</li>
+  <li>Try finishing the game within 10 steps to be a Pro player! Good luck!!</li>
+</ul>
 
-### `npm run build`
+## Run Locally
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Clone the project
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+  https://github.com/PALASH-BAJPAI/PokedeX.git
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Go to the project directory
 
-### `npm run eject`
+```bash
+  cd App
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Install the requirements
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+  npm install
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Run your app locally
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```bash
+  npm start
+```
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Screenshots
+<div align="center">
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+![image](https://github.com/Krishna-Pulikkot/Vaccine-Game/assets/70850484/0f7497ea-11fc-4c21-b096-f364c845a8ac)
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+![image](https://github.com/Krishna-Pulikkot/Vaccine-Game/assets/70850484/6c8657d4-76aa-4f19-8105-398ac229b28f)
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+</div>
