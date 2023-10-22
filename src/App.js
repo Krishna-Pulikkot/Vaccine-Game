@@ -10,7 +10,7 @@ function App() {
   }, []);
 
   function loadGame() {
-    var gameSet = [["11","12","21"],["11", "12", "13"], ["12", "32", "21"], ["31", "11"], ["12", "32"], ["21", "12"], ["21", "23", "31", "33"], ["22", "11", "12"], ["12", "13", "23", "33"]];
+    var gameSet = [["11","13","21","32","33"],["11","13","31","33"],["11","12","23","31"],["12","13","21","23"],["22","23","32","33"],["22","23","32"],["13","32"],["13","23","33"],["31","32","33"],["21","23"],["11"],["33"],["13"],["31"],["11", "12", "13"], ["12", "32", "21"], ["31", "11"], ["12", "32"], ["21", "12"], ["21", "23", "31", "33"], ["22", "11", "12"], ["12", "13", "23", "33"]];
     var n = gameSet.length;
     var randomNum = Math.floor(Math.random() * n);
     for (let i = 0; i < gameSet[randomNum].length; i++) {
@@ -79,7 +79,7 @@ function App() {
       <div className='navbar'>
         <div className = 'navbar-header'>
           <img className='logo' src='logo.png' alt="Logo" />
-          <p className='score-nav'> <span className='steps-show'> Score :  {steps} </span> </p>
+          <p className='score-nav'> <span className='steps-show'> Steps :  {steps} </span> </p>
           <button className='open'  onClick={() => {setOpen(true);document.getElementById('back').classList.add("blur-show");}}>HOW TO PLAY</button>
         </div>
         {open && (
