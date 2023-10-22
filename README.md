@@ -34,7 +34,7 @@ The city is affected by the virus, so help the city to fight against it.
 Clone the project
 
 ```bash
-  https://github.com/PALASH-BAJPAI/PokedeX.git
+  https://github.com/Krishna-Pulikkot/Vaccine-Game.git
 ```
 
 Go to the project directory
